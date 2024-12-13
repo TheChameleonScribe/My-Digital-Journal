@@ -474,40 +474,120 @@ h1:hover, h3.directory-button:hover {
 
 
 
-@media (max-width: 768px) {
+#mobile-sidebar-toggle {
+    display: none;
+  }
+
+
+/* Responsive Mobile Adjustments
+ * Modifies layout for smaller screen sizes
+ */
+
+ @media (max-width: 768px) {
+
+    .tab-content {
+        padding: 0;
+    }
+    
+    #desktop-sidebar-toggle {
+        display: none;
+      }
+
+      #mobile-sidebar-toggle {
+        display: block;
+      }
+
     body {
         flex-direction: column;
+        overflow-x: hidden;
     }
 
-    #sidebar {
+    .sidebar {
         width: 100%;
         position: static;
         border-right: none;
         border-bottom: 5px solid var(--border-color);
+        padding: 10px;
+        transform: none; /* Remove any existing transforms */
     }
 
-    #sidebar nav {
+    .sidebar.hidden {
+        display: none; /* Hide completely when hidden on mobile */
+    }
+
+    .sidebar-toggle {
+        position: fixed; /* Keep the toggle button fixed */
+        right: 20px;
+        top: 10px;
+        writing-mode: vertical-rl;
+        transform: none;
+        z-index: 1001;  /* Ensure it stays on top */
+    }
+
+
+    .sidebar nav {
+        flex-direction: row; /* Horizontal nav on mobile */
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
+        white-space: nowrap; /* Prevent wrapping */
+         /* Add some padding to the top to create space between the toggle and nav */
+
+    }
+    .category-container {
+        width: 100%;
+        height: auto;  /* Allow container to expand vertically */
         flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        direction: ltr; /* Correct text direction */
+    }
+    
+    .category-box {
+        width: auto;    /* Adjust box width based on content */
+        min-width: 100px;/* Set a minimum width to prevent boxes from becoming too small */
+        height: 40px;   /* Reduce height for mobile */
+        margin-right: 5px; /* Add some spacing between boxes */
+        white-space: nowrap; /* Prevent text from wrapping */
+        flex-shrink: 0;  /* Prevent boxes from shrinking */
+        font-size: 1rem; /* Adjust font size as needed */
     }
 
-    #sidebar nav a {
-        margin: 5px;
+
+    .sidebar nav a {
+        padding: 10px;  /* Adjust padding as needed */
     }
+
+    .tab-container {
+        min-height: 35px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
 
     .main-content {
         margin-left: 0;
         width: 100%;
         border-left: none;
-        padding: 20px;
+        height: 200px;
     }
 
+    .content-entry {
+        margin: 0px;
+        padding: 15px;
+    }
     
 
-    img {
-        max-height: 150px;
-        max-width: 300px;
+    .pointer {
+        display: none;
     }
+
+    img {
+        max-width: 100%; /* Make sure images don't overflow */
+        height: auto;   /* Maintain aspect ratio */
+    }
+    .sidebar img:not(.pointer) { /* Make sure other images in the sidebar are responsive too */
+        display: none; /* Prevent inline-block behavior */
+    }
+    /* ... other mobile adjustments ... */
 
 }

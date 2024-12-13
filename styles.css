@@ -623,9 +623,7 @@ h1:hover, h3.directory-button:hover {
     
 
     .pointer {
-        width: 150px; /* Adjust pointer size for mobile */
-        height: auto;
-        left: calc(50% - 75px); /* Center horizontally */
+        display: none;
     }
 
     img {
