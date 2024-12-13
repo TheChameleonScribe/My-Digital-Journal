@@ -589,12 +589,11 @@ h1:hover, h3.directory-button:hover {
     .category-box {
         width: auto;    /* Adjust box width based on content */
         min-width: 100px;/* Set a minimum width to prevent boxes from becoming too small */
-        height: 80px;   /* Reduce height for mobile */
+        height: 40px;   /* Reduce height for mobile */
         margin-right: 5px; /* Add some spacing between boxes */
         white-space: nowrap; /* Prevent text from wrapping */
         flex-shrink: 0;  /* Prevent boxes from shrinking */
         font-size: 1rem; /* Adjust font size as needed */
-        
     }
 
 
@@ -603,23 +602,14 @@ h1:hover, h3.directory-button:hover {
     }
 
     .tab-container {
-        margin-top:50px;
-        min-height: 180px;
+        min-height: 35px;
         flex-direction: row;
         flex-wrap: nowrap;
         overflow-x: auto;
-        gap: 20px;
-        background-color: transparent;
-        border: 0;
     }
 
     .tab {
-        height: 160px;
-        font-size: 17px;
-        min-width: 90px;
-        overflow-wrap: break-word;
-        white-space: normal;
-        border-radius: 10px;
+        
     }
 
     .main-content {
