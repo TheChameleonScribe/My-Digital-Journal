@@ -325,6 +325,7 @@ html body pre>code {
     border: 1px solid #ccc;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     min-height: 1000px;
+
 }
 
 .entry-meta {
@@ -627,6 +628,7 @@ h1:hover, h3.directory-button:hover {
     .content-entry {
         margin: 0px;
         padding: 15px;
+        padding-bottom: 200px;
     }
     
 
