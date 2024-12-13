@@ -1,0 +1,513 @@
+ /* Fonts
+ */
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    line-height: normal;
+}
+
+/* Header Formatting
+*/
+
+html body h1,html body h2,html body h3,html body h4,html body h5,html body h6 {
+    line-height: 1.2;
+    margin-top: 1em;
+    margin-bottom: 16px;
+}
+
+html body h1 {
+    font-size: 2.25em;
+    font-weight: 300;
+    padding-bottom: .3em
+}
+
+html body h2 {
+    font-size: 1.75em;
+    font-weight: 400;
+    padding-bottom: .3em
+}
+
+html body h3 {
+    font-size: 1.5em;
+    font-weight: 500
+}
+
+html body h4 {
+    font-size: 1.25em;
+    font-weight: 600
+}
+
+html body h5 {
+    font-size: 1.1em;
+    font-weight: 600
+}
+
+html body h6 {
+    font-size: 1em;
+    font-weight: 600
+}
+
+html body h1,html body h2,html body h3,html body h4,html body h5 {
+    font-weight: 600
+}
+
+html body h5 {
+    font-size: 1em
+}
+
+html body h6 {
+    color: #5c5c5c
+}
+
+/* Blockquote Formatting
+*/
+
+html body blockquote {
+    margin: 16px 0;
+    font-size: inherit;
+    padding: 0 15px;
+    background-color: #ffffff;
+    border-left: 4px solid #e5e5e5
+}
+
+/* Numbered and Unordered Lists Formatting
+
+*/
+
+ul {
+    list-style: disc
+}
+
+ul ul {
+    list-style: circle
+}
+
+ul ul ul {
+    list-style: square
+}
+
+ol {
+    list-style: decimal
+}
+ol ol, ul ol {
+    list-style-type: lower-roman
+}
+
+ ol ol ol, ol ul ol, ul ol ol, ul ul ol {
+    list-style-type: lower-alpha
+}
+
+/* Code Formatting
+*/
+
+html body code {
+    font-family: Menlo,Monaco,Consolas,'Courier New',monospace;
+    font-size: .85em;
+    color: #000;
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: .2em 0
+}
+
+html body code::after,html body code::before {
+    letter-spacing: -.2em;
+    content: '\00a0'
+}
+
+html body pre>code {
+    padding: 0;
+    margin: 0;
+    word-break: normal;
+    white-space: pre;
+    background: 0 0;
+    border: 0
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F0F0F0;
+    display: flex;
+    min-height: 100vh;
+    line-height: 1.6;
+    border-top: 4px solid #000;
+    border-right: 4px solid #000;
+}
+
+#sidebar {
+    width: 250px;
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    border-radius: 0 10px 10px 0;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--secondary-purple);
+}
+
+#sidebar h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    text-align: center;
+    color: var(--accent-yellow);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+}
+
+
+#sidebar h3 {
+    text-align: center;
+    color: #FFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    width: 50%;
+    height: 1rem;
+    margin: 0 25% 7px;
+    font-size: 1rem;
+}
+
+#sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar nav a {
+    color: rgb(55, 65, 81);;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600; /* 600 corresponds to "Semibold" */
+    text-decoration: none;
+    padding: 6px 15px;
+    background-color: var(--secondary-purple);
+}
+
+#sidebar nav a:hover {
+    background-color: var(--accent-yellow);
+    color: #000;
+}
+
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    background-color: var(--secondary-purple);
+    padding: 50px;
+    border-left: 5px solid var(--border-color);
+    max-height: 100vh;
+    overflow-y: auto;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.main-content.sidebar-hidden {
+    margin-left: 0;
+    width: 100%;
+}
+
+.content-entry {
+    background-color: #f1f1f1;
+    margin-bottom: 30px;
+    margin-left: 239.5px;
+    margin-right: 203.5px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.content-entry h2 {
+    color: var(--secondary-purple);
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.entry-meta {
+    font-style: italic;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.main-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+/* Media and Interactive Elements
+ * Styles for images, iframes, and other multimedia content
+ */
+ img {
+    max-height: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    display: block;
+}
+iframe {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 1);
+}
+
+
+/* Typography and Link Styles
+ * Defines styles for text elements and hyperlinks
+ */
+ html body a {
+    color: #08c;
+    text-decoration: none;
+}
+
+html body a:hover {
+    color: #00a3f5;
+    text-decoration: none;
+}
+
+html body ol, html body ul {
+    padding-left: 1em;
+}
+
+html body blockquote, html body dl, html body ol, 
+html body p, html body pre, html body ul {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+
+/* Miscellaneous Text Elements
+ * Styles for headings, quotes, horizontal rules, and other text decorations
+ */
+ h5 {
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    padding: 0 3px;
+    display: inline-block;
+}
+
+blockquote {
+    margin: 0;
+    padding-left: 20px;
+    font-style: normal;
+    color: inherit;
+    background: none;
+}
+
+hr.scenebreak {
+    border: none;
+    text-align: center;
+}
+
+hr.scenebreak::after {
+    content: '• • •';
+    display: inline-block;
+    color: inherit;
+}
+
+hr:not(.scenebreak) {
+    height: 4px;
+    margin: 32px 0;
+    background-color: #d6d6d6;
+    border: 0 none;
+}
+
+/* Hover Effects
+ * Adds subtle interaction effects to various elements
+ */
+ h1, h3.directory-button{
+    transition: transform 0.3s ease, box-shadow 0.3s ease,text-shadow 0.3s ease;
+    
+}
+
+h1:hover, h3.directory-button:hover {
+    transform: scale(1.05);
+}
+
+/* Gallery and Image Interaction
+ * Provides responsive and interactive image gallery styling
+ */
+ .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    text-align: center;
+}
+
+.gallery img {
+    max-height: 500px;
+    width: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery figcaption {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Nav Bar Box Test
+*/
+.category-container {
+    width: 211px;
+    height: 211px;
+    border: 1px solid #333;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    direction: rtl;
+}
+.category-box {
+    width: 100%;
+    height: 52.25px;
+    border: 1px solid var(--primary-purple);
+    display: flex;
+    font-size:1.25rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    position: relative;
+
+    transition: transform .3s ease, color .3s ease, background-color .3s ease, box-shadow .3s ease;
+    transform-origin: center; /* Ensures scaling from the center */
+}
+
+.category-box:hover {
+    transform: scale(1.05); /* Scales the element */
+    z-index: 1000;
+
+}
+
+
+
+/* Keyboard Shortcuts Arrow Keys Box
+*/
+
+.container {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .previous-button, .next-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .keyboard-shortcuts {
+    color: #6c757d;
+    font-size: 11px;
+    font-family: "Inter", sans-serif;
+  }
+
+.box-icon {
+    border: 1px solid #E0E0EB;
+    box-shadow: 0 0.125em 0 var(#E0E0EB);
+    color: #9CA3AF;
+    line-height: 1.25;
+    border-radius: 0.5em;
+    padding: 0.25em 0.375em
+}
+
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        width: 100%;
+        position: static;
+        border-right: none;
+        border-bottom: 5px solid var(--border-color);
+    }
+
+    #sidebar nav {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #sidebar nav a {
+        margin: 5px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        border-left: none;
+        padding: 20px;
+    }
+
+    
+
+    img {
+        max-height: 150px;
+        max-width: 300px;
+    }
+
+}

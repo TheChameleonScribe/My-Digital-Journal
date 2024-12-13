@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="gallery.js"></script>
+    <script src="click-to-view-images.js"></script>
+    <title>My Digital Journal</title>
+    <style>
+        :root {
+            --primary-purple: #6A0DAD;
+            --secondary-purple: #b42020;
+            --accent-yellow: #FFD700;
+            --border-color: #000;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="styles2.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div id="sidebar">
+        <button class="sidebar-toggle">&lt; &gt;</button>
+        <a href="index.html"><h1>My Digital Journal</h1></a>
+        <div style="background-color: transparent;  border-bottom: 3px solid var(--accent-yellow);">
+        <a href="directory.html"><h3 class="directory-button">Directory</h3></a>
+    </div>
+        <nav>
+            <div class="category-container">
+                <a href="about.html" style="background-color: #b42020;" class="category-box" data-text="About"><div class="text">About</div></a>
+                <a href="journal.html" style="background-color: #4aa;" class="category-box" data-text="Journal"><div class="text">Journal</div></a>
+                <a href="autobiography.html" style="background-color: #d6d62a" class="category-box" data-text="Autobiography"><div class="text">Autobiography</div></a>
+                <a href="http://users3.smartgb.com/g/g.php?a=s&i=g36-37568-7f" style="background-color: #00FF00" class="category-box" data-text="Guestbook"><div class="text">Guestbook</div></a>
+                
+            </div>
+            <img style="width: 100%;" class="hidden lg:block NOTIMAGE"  src="https://i.pinimg.com/736x/f5/21/9f/f5219f28820e5bb64b56bc93020e8e29.jpg">
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-entry">
+            <h2>About</h2>
+            <span class="entry-meta">Last Updated: December 6, 2024</span>
+            <img src="Screenshot 2024-12-06 193922.png">
+            <p>
+                Welcome to my little corner of the internet! I'm a writer, creator, and lifelong learner 
+                who loves exploring the intersections of storytelling, art, and technology. By day, 
+                you'll find me immersed in books, writing fiction and non-fiction, coding projects, or 
+                reflecting on life through my journal. By night, I'm an avid gamer and musician, always 
+                chasing inspiration. 
+            </p>
+            <p>
+            This blog is my space to document my journey, share insights, and connect with others 
+            who are equally curious about the world. Whether you're here for reflections, creative 
+            tips, or a peek into my evolving projects, I hope you find something meaningful and 
+            inspiring. Thanks for stopping by!
+            </p>
+
+            <p>
+            I take <b>direct inspiration</b> from <a href="https://incessantpain.neocities.org/"><i>incessantpain</i></a>, mirroring my layout after theirs. They were the final push that led me to create this website.
+            </p>
+
+            <div class="container">
+                <p>Use the left arrow and right arrow key to switch between folders in sections that have folders (not here).</p>
+                <span class="keyboard-shortcuts"><span class="box-icon"><i class="fa-solid fa-arrow-left"></i></span> Keyboard shortcuts <span class="box-icon"><i class="fa-solid fa-arrow-right"></i></span></span>
+            </div>  
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+                mainContent.classList.toggle('sidebar-hidden');
+            });
+        });
+
+        window.onload = function() {
+            // Define your birthdate (January 20, 2003) in UTC+8 (China Standard Time or similar)
+            const birthDate = new Date(Date.UTC(2003, 0, 20)); // Birthdate in UTC time
+            const today = new Date();
+
+            // Adjust the date to account for UTC+8 (8 hours ahead of UTC)
+            const localToday = new Date(today.getTime() + (8 * 60 * 60 * 1000));
+
+            // Calculate the age by comparing current date to birthdate
+            let age = localToday.getFullYear() - birthDate.getFullYear();
+            const monthDiff = localToday.getMonth() - birthDate.getMonth();
+
+            // Adjust the age if the birthday hasn't occurred yet this year
+            if (monthDiff < 0 || (monthDiff === 0 && localToday.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            // Update the paragraph with the calculated age
+            let ageDisplays = document.querySelectorAll("#ageDisplay");  // Get all elements with the class 'ageDisplay'
+
+            ageDisplays.forEach(span => {
+            span.innerHTML = `${age} years old,`;
+            });
+        };
+
+
+    </script>
+</body>
+
+</html>
