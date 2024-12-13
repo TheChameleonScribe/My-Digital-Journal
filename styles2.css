@@ -142,7 +142,7 @@ body {
     border-right: 4px solid #000;
 }
 
-#sidebar {
+.sidebar {
     width: 250px;
     background-color: var(--primary-purple);
     color: white;
@@ -154,7 +154,7 @@ body {
     z-index: 1000;
 }
 
-#sidebar.hidden {
+.sidebar.hidden {
     transform: translateX(-100%);
 }
 
@@ -179,7 +179,7 @@ body {
     background-color: var(--secondary-purple);
 }
 
-#sidebar h1 {
+.sidebar h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800;
     text-align: center;
@@ -190,7 +190,7 @@ body {
 }
 
 
-#sidebar h3 {
+.sidebar h3 {
     text-align: center;
     color: #FFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -201,12 +201,12 @@ body {
     font-size: 1rem;
 }
 
-#sidebar nav {
+.sidebar nav {
     display: flex;
     flex-direction: column;
 }
 
-#sidebar nav a {
+.sidebar nav a {
     color: rgb(55, 65, 81);;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600; /* 600 corresponds to "Semibold" */
@@ -215,7 +215,7 @@ body {
     background-color: var(--secondary-purple);
 }
 
-#sidebar nav a:hover {
+.sidebar nav a:hover {
     background-color: var(--accent-yellow);
     color: #000;
 }
@@ -566,6 +566,7 @@ h1:hover, h3.directory-button:hover {
 
     .main-content {
         margin-left: 0;
+        padding: 0;
         width: 100%;
         border-left: none;
         height: 200px;
