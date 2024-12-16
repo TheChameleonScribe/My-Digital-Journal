@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Digital Journal</title>
+    <title>LonerHermitNEET</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen overflow-hidden">
     <div class="lg:flex h-full">
         <!-- Left Section -->
         <div class="p-6 lg:w-1/2 bg-gray-100 flex flex-col justify-center items-center lg:items-start lg:p-16">
-            <img src="First Version.png" class="absolute w-20 h-14 top-0 left-[clamp(3rem,3vw,8rem)] lg:top-2 lg:left-56 lg:w-48 lg:h-28 z-10">
-            <img src="journal.png" class="w-2/3 lg:mt-11 lg:w-auto mb-4  lg:mb-8">
+            <img src="First Version.webp" class="absolute w-20 h-14 top-0 left-[clamp(3rem,3vw,8rem)] lg:top-2 lg:left-56 lg:w-48 lg:h-28 z-10">
+            <img src="journal.webp" class="w-2/3 lg:mt-11 lg:w-auto mb-4  lg:mb-8">
             <h1 class="text-2xl lg:text-4xl font-bold text-gray-800 mb-4 text-center lg:text-left">
                 This is <i>My Digital Journal</i>
             </h1>
@@ -20,13 +20,13 @@
             </h2>
             <a href="#" id="site-link" class="text-blue-600 hover:text-blue-800 text-base lg:text-xl flex items-center">
                 Go to site →
-                <img class="inline-block ml-2 w-8 h-8 lg:w-10 lg:h-10" src="VS--YouTube-AgeofEmpires2SoundtrackAmbientMusicAoCMusicSounds-2’26”.jpg">
+                <img class="inline-block ml-2 w-8 h-8 lg:w-10 lg:h-10" src="VS--YouTube-AgeofEmpires2SoundtrackAmbientMusicAoCMusicSounds-2’26”.webp">
             </a>
         </div>
 
         <!-- Right Section -->
         <div class="lg:w-1/2 bg-gray-200 h-64 lg:h-auto">
-            <img src="That’s me.png" alt="Portrait" class="w-full h-full object-cover">
+            <img src="That’s me.webp" alt="Portrait" class="w-full h-full object-cover">
         </div>
     </div>
 
@@ -35,7 +35,7 @@
         <div class="bg-white p-4 lg:p-6 rounded-lg shadow-xl max-w-sm w-full">
             <h2 class="text-lg lg:text-xl font-bold mb-4">Are you sure?</h2>
             <p class="text-sm lg:text-base mb-6">
-                This site is a work in progress, does not work on mobile devices, expects 1920x1080 resolution and 16x9 ratio screens, and is created by someone older than 18 years old.
+                This site is a work in progress, expects 1920x1080 resolution and 16x9 ratio screens, and is created by someone over 18 years old (<span id="ageDisplay"></span>).
             </p>
             <div class="flex justify-end space-x-4">
                 <button id="cancel-btn" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">
@@ -77,6 +77,31 @@
                 }
             });
         });
+
+        window.onload = function() {
+            // Define your birthdate (January 20, 2003) in UTC+8 (China Standard Time or similar)
+            const birthDate = new Date(Date.UTC(2003, 0, 20)); // Birthdate in UTC time
+            const today = new Date();
+
+            // Adjust the date to account for UTC+8 (8 hours ahead of UTC)
+            const localToday = new Date(today.getTime() + (8 * 60 * 60 * 1000));
+
+            // Calculate the age by comparing current date to birthdate
+            let age = localToday.getFullYear() - birthDate.getFullYear();
+            const monthDiff = localToday.getMonth() - birthDate.getMonth();
+
+            // Adjust the age if the birthday hasn't occurred yet this year
+            if (monthDiff < 0 || (monthDiff === 0 && localToday.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            // Update the paragraph with the calculated age
+            let ageDisplays = document.querySelectorAll("#ageDisplay");  // Get all elements with the class 'ageDisplay'
+
+            ageDisplays.forEach(span => {
+            span.innerHTML = `${age} years old`;
+            });
+        };
     </script>
 </body>
 </html>

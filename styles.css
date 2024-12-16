@@ -632,9 +632,6 @@ h1:hover, h3.directory-button:hover {
     }
     
 
-    .pointer {
-        display: none;
-    }
 
     img {
         max-width: 100%; /* Make sure images don't overflow */
